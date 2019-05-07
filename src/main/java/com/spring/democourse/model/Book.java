@@ -17,7 +17,8 @@ public class Book {
     private Long id;
     private String isbn;
     private String title;
-    private String publisher;
+    @OneToOne
+    private Publisher publisher;
 
     @ManyToMany
     @JoinTable(name = "author_books",
@@ -30,7 +31,7 @@ public class Book {
 
     }
 
-    public Book(String isbn, String title, String publisher) {
+    public Book(String isbn, String title, Publisher publisher) {
         this.title = title;
         this.isbn = isbn;
         this.publisher = publisher;
